@@ -14,7 +14,353 @@
 .SLES1 .hex {	
 	background:rgb(239, 0, 83);!important;
 	color: black;
+	margin: 10px;<html>
+<head>
+	<!-- http://slowe.github.io/stuquery/hexmap.html -->
+<script type="text/javascript" src="https://slowe.github.io/stuquery/js/stuquery.min.js"></script>
+<script type="text/javascript" src="https://slowe.github.io/stuquery/js/stuquery.hexmap.js"></script>
+<link rel="stylesheet" href="https://slowe.github.io/stuquery/css/stuquery.hexmap.css">
+<!-- https://github.com/anseki/leader-line -->
+<!-- <script type="text/javascript" src="leader-line.min.js"></script> -->
+<!-- https://github.com/anvaka/panzoom -->
+<script src='https://unpkg.com/panzoom@9.2.4/dist/panzoom.min.js'></script>
+
+<style>
+
+.SLES1 .hex {	
+	background:rgb(239, 0, 83);!important;
+	color: black;
 	margin: 10px;
+	cursor: pointer;}
+
+.SLES1 .hex .hexInner {
+	background: rgb(227, 245, 244);
+	margin: 3px;
+	}
+
+.hexcontent{font-size:0.6em;color:#333}
+
+.knowledge {background-color:rgb(227, 245, 244) !important}
+.navigation {background-color:#89b5af !important}
+.decision {background-color: #b9eca4 !important}
+
+
+
+.SLES1{
+	display:block;
+	filter: drop-shadow(0 0 4px rgb(239, 0, 83));
+	margin:30px;
+	padding:30px;
+	width:100% !important;
+	}
+
+
+body{background-color:rgb(227, 245, 244);padding:100px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+
+.hex_heading {
+			background-color:rgb(239, 0, 83);
+			color:whitesmoke;
+			/* width:20em; */
+			padding:5px;
+			display: inline;
+			position: absolute;
+			top:0;
+			left:0px
+			}
+
+.hex_navigation {border-left:1px solid rgb(239,0,83);margin-bottom:100px}
+
+#model_message {display:none}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- Trigger/Open The Modal -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modal_text">Some text in the Modal..</p>
+  </div>
+
+</div>
+<div id="nav_area">
+
+	<table>
+		<tr width="400px">
+			<td>
+				<div id="SLESmap" class="SLES1 hex_navigation">
+					<div class="hex_heading">Building the Initial Case</div>
+					<code>
+						{
+							"layout":"odd-q",
+							"hexes": {
+								"1":{"q":1,"r":1,"short_desc":"What kind of LA and their available powers","group":"Building the Initial Case","type":"Input","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Interactive, survey?, supported EnergyREV Report (e.g. approaches that are successful)"},
+								"2":{"q":2,"r":1,"short_desc":"What sectors, vectors and segments are targeted","group":"Building the Initial Case","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Evaluation Outputs, RESO SLES vector canvas, net zero project's whole system map"},
+								"3":{"q":2,"r":0,"short_desc":"Motivating factors and drivers of Local Authority","group":"Building the Initial Case","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Aspects of integration (lite), Evaluation criteria long-list, EnergyREV's map of SLES to UN Millenium development goals, categorising and reducing risks (SLES attributes table)"},
+								"4":{"q":3,"r":1,"short_desc":"How big are the sectors, vectors and segments","group":"Building the Initial Case","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"LEAR?, need something more here?"},
+								"5":{"q":3,"r":2,"short_desc":"Options for decarbonising each vector and segment","group":"Building the Initial Case","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Net Zero? LAEP, PFER, SCATTER, Early ESIG spreadsheet on technology options (and synergistic combinations) at campus scale, categorising and reducing risks (SLES attributes table)"},
+								"6":{"q":4,"r":1,"short_desc":"Define clear vision of what we want to achieve and deliver (including benefits and impact)","group":"Building the Initial Case","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Template? Categorising and Reducing Risks (SLES Attirubtes and Features = benefits and value)?"},
+								"7":{"q":5,"r":1,"short_desc":"Maps of low effort routes to high impact successes","group":"Building the Initial Case","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond) & Evaluation Themes"},
+								"8":{"q":6,"r":1,"short_desc":"Justification for LA putting effort into concept design","group":"Building the Initial Case","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Template? (UK100?, LGA)"},
+								"9":{"q":6,"r":0,"short_desc":"What assumptions create risks","group":"Building the Initial Case","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Risks and Assumptions primer/starter guide, PFER RAID logs, EnergyREV Theory of Change, ERIS Synthesis of Risks"},
+								"10":{"q":7,"r":2,"short_desc":"Evidence for how the project acts as a viable investment","group":"Building the Initial Case","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond), Investing in SLES Report?, Ipsos MORI outputs?"},
+								"11":{"q":7,"r":1,"short_desc":"Evidence for benefits and outcomes of success","group":"Building the Initial Case","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond), Ipsos MORI outputs? , EnergyREV evaluation tool"},
+								"11.1":{"q":8,"r":2,"short_desc":"Funding and Investment","group":"Building the Initial Case","type":"Navigation","target":"Funding and Investment Hex","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":""},
+								"11.2":{"q":9,"r":2,"short_desc":"Roadmap and timelines","group":"Building the Initial Case","type":"Navigation","target":"Roadmap and timelines","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":""},
+								"11.3":{"q":8,"r":1,"short_desc":"Approaches and structures to achieve success","group":"Building the Initial Case","type":"Navigation","target":"Approaches and structures to achieve success","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Links to the next three subsegments, linked to AoI?"},
+								"11.4":{"q":9,"r":1,"short_desc":"Horizon Scanning","group":"Building the Initial Case","type":"Navigation","target":"Horizon Scanning","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":""}									
+							}
+						}
+					
+					</code>
+				</div>
+			</td>
+			<td width="100px">
+				<div id="SLESfundingandinvestment" class="SLES1  hex_navigation">
+						<div class="hex_heading">Funding and Investment</div>
+							<code> {
+									"layout":"odd-q",
+									"hexes": {
+										"12":{"q":1,"r":1,"short_desc":"How much will it cost (estimates and examples)","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"13":{"q":2,"r":1,"short_desc":"What funding routes are available","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Investment map / investor profles from risk work, Anna's crowd funding thing?, Something from IUK/Gov on national funding"},
+										"14":{"q":2,"r":0,"short_desc":"What kinds of commercial models can be deployed","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond), UK100 resources?, Business modelling archetypes, GreenSCIES slide on models"},
+										"15":{"q":3,"r":2,"short_desc":"How funding can be accessed","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"IUK/Gov for public funding? Investors for private funding? Anna's report on good practice in green finance? The Regen report? Andrew Burford"},
+										"16":{"q":3,"r":1,"short_desc":"How the private sector can be incentivised","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Evidence of RoI? Case studies (PFER and beyond), something on stakeholders?"},
+										"17":{"q":3,"r":0,"short_desc":"How the system can become self-sustaining","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"18":{"q":4,"r":1,"short_desc":"Case studies of successful funding access and use","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"19":{"q":4,"r":0,"short_desc":"Case studies of successful commercial models","group":"Funding and Investment","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond), Delta-EE case studies"}											
+									}
+								}
+							</code>
+						</div>
+					
+					<div id="SLESroadmapandtimelines" class="SLES1  hex_navigation">
+							<div class="hex_heading">Roadmap and Timelines</div>
+							<code>{
+									"layout":"odd-q",
+									"hexes": {
+										"20":{"q":5,"r":1,"short_desc":"Roadmap of steps to delivery","group":"Roadmap and Timelines","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"ERIS to develop, probably base it on the BEIS stages for local energy system"},
+										"21":{"q":6,"r":2,"short_desc":"How long it will take (estimates and case study examples)","group":"Roadmap and Timelines","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"22":{"q":6,"r":1,"short_desc":"What knowledge, capability and outcomes are necessary at each step","group":"Roadmap and Timelines","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Innovation Funnel, maturity matrices from ESIG"},
+										"23":{"q":7,"r":3,"short_desc":"When it will deliver benefits and impact","group":"Roadmap and Timelines","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"24":{"q":7,"r":2,"short_desc":"Common blockers and their mitigations","group":"Roadmap and Timelines","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Risk logs, categorising and reducing risks, Friction points from Tom Furlong"},
+										"25":{"q":7,"r":1,"short_desc":"Where to get the knowledge needed and capability at each step","group":"Roadmap and Timelines","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"ERIS to develop SLES Capability Directory"},
+										"26":{"q":8,"r":0,"short_desc":"Resources and Supply Chain","group":"Roadmap and Timelines","type":"Navigation","target":"","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":""}
+											}
+								}
+							</code>
+					</div>
+					
+					<div id="SLEShorizonscanning" class="SLES1  hex_navigation">
+							<div class="hex_heading">Horizon Scanning</div>
+							<code>
+								{
+									"layout":"odd-q",
+									"hexes": {
+										"27":{"q":1,"r":1,"short_desc":"Case study examples of relevant projects","group":"Horizon Scanning","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"28":{"q":2,"r":0,"short_desc":"Projects that need to happen or are planned to happen","group":"Horizon Scanning","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"LEPs, EnergyHubs - signposting (not just energy, but also whole system), Whole Systems plans within LAs"},
+										"29":{"q":2,"r":1,"short_desc":"Successful past or present projects","group":"Horizon Scanning","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"30":{"q":3,"r":1,"short_desc":"Location information and key contacts","group":"Horizon Scanning","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Study directory"}				
+									}
+								}
+							</code>
+					</div>
+			</td>
+			<td width="200px">
+					<div id="SLESresources" class="SLES1  hex_navigation">
+							<div class="hex_heading">Resources and Supply Chain</div>
+							<code>
+								{
+									"layout":"odd-q",
+									"hexes": {
+										"31":{"q":1,"r":1,"short_desc":"Profile and index of skills and capabilities necessary for delivery","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"ERIS to develop skills matrix based on SLES Capability Directory"},
+										"32":{"q":2,"r":1,"short_desc":"Define who is responsible for delivering the capability and skills","group":"Resources and Supply Chain","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"RACI (or similar?), pointers to a Code of Practice?"},
+										"33":{"q":3,"r":1,"short_desc":"Local Authority capability index","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"LA Capability Directory, pointers to a Code of Practice?"},
+										"34":{"q":3,"r":0,"short_desc":"Supply chain capability index","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"ISP - supply chain database and landscaping, pointers to a Code of Practice?"},
+										"35":{"q":4,"r":2,"short_desc":"Which departments need to be involved","group":"Resources and Supply Chain","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Internal LA skills matrix, case study based? (Dependent on the survey in SLES-BC-01)"},
+										"36":{"q":4,"r":1,"short_desc":"Which other local authorities have particular strengths","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Stakeholder mapping from BIES, UK100, pointers to a Code of Practice?, ERIS to develop SLES skills map in LAs"},
+										"37":{"q":4,"r":0,"short_desc":"Which private sector organisations have particular strength","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"ISP - supply chain database and landscaping, pointers to a Code of Practice?"},
+										"38":{"q":5,"r":2,"short_desc":"Establish lines of approval and governance processes","group":"Resources and Supply Chain","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case study based? Checklist based on LA's setup (SLES-BC-01)"},
+										"39":{"q":5,"r":1,"short_desc":"How they can be on-boarded to the project","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Good practice, communications materials, common (simple) language guide, engineering management plan, SLES for dummies"},
+										"40":{"q":5,"r":0,"short_desc":"Case studies of their activities and the benefits achieved","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond)"},
+										"41":{"q":5,"r":-1,"short_desc":"Finding and convening the right partners (and what tender responses to avoid)","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond) on what to look for, ISP supply chain database, ISO44001, "},
+										"42":{"q":6,"r":3,"short_desc":"Prepare resource plans","group":"Resources and Supply Chain","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Templates (crown service?), Good practice, specific to each LA"},
+										"43":{"q":6,"r":-1,"short_desc":"Firm up estimates of delivery costs","group":"Resources and Supply Chain","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Templates (crown service?), Good practice and common assumptions to use"},
+										"44":{"q":6,"r":-2,"short_desc":"Template or example tender, commercial and procurement documents or processes","group":"Resources and Supply Chain","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Code of Practice, examples from across PFER"},
+										"45":{"q":7,"r":-1,"short_desc":"Agree and align the vision, outcomes and objectives","group":"Resources and Supply Chain","type":"Decision","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"AoI for Orkney thing, LEO Benefits world café, assement/evaluation options"}
+									}
+								}
+							</code>
+						</div>
+					</div>
+					<div id="SLESdatarequirements" class="SLES1  hex_navigation">
+							<div class="hex_heading">Data Requirements</div>
+							<code>
+								{
+									"layout":"odd-q",
+									"hexes": {
+										"46":{"q":1,"r":1,"short_desc":"Technical data needed for detailed design","group":"Data Requirements","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"LEAR, Landscape of data sources, CDaS, ERIS Data Insight"},
+										"47":{"q":2,"r":1,"short_desc":"Map of requisite data held by private sector","group":"Data Requirements","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"LEAR, Landscape of data sources, CDaS, ERIS Data Insight"},
+										"48":{"q":2,"r":0,"short_desc":"Map of requisite data held by the Local Authority","group":"Data Requirements","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Examples from other LAs, LEO's land usage tool"},
+										"49":{"q":3,"r":1,"short_desc":"How to get access to requisite data","group":"Data Requirements","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Case Studies (PFER and beyond), POD project, EDTF, MEDA, Data Platform"},
+										"50":{"q":3,"r":2,"short_desc":"How to manage and share data","group":"Data Requirements","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"Data Management Strategy, Data Sharing Agreement and Licenses"}												
+									}
+								}
+							</code>
+						</div>
+					</div>
+					
+					
+					<div id="SLESstakeholders" class="SLES1  hex_navigation">
+							<div class="hex_heading">Stakeholders and Engagement</div>
+							<code>
+								{
+									"layout":"odd-q",
+									"hexes": {
+										"51":{"q":1,"r":1,"short_desc":"How to engage with communities, stakeholders and people","group":"Stakeholders and Engagement","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"User community working group, Method Map, Code of Practice, Living Lab"},
+										"52":{"q":2,"r":1,"short_desc":"Resources for engagement, communications and marketing","group":"Stakeholders and Engagement","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"ERIS Insights, LEO Smart and Fair Neighbourhoods, ZCR's cultural animation, onboarding material from Passiv and Kensa"},
+										"53":{"q":2,"r":0,"short_desc":"Map of stakeholders and their potential requirements","group":"Stakeholders and Engagement","type":"Knowledge","target":"page","long_desc":"orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vestibulum aliquam iaculis. Donec at libero ac eros congue sodales. Maecenas mollis egestas leo id congue. Pellentesque turpis ipsum, laoreet vel maximus ac, faucibus sed est. Cras ut interdum massa. Morbi feugiat vulputate dui et sagittis. Vivamus viverra ac libero non ornare. Maecenas tristique nisi et eleifend pulvinar. Duis mattis sollicitudin varius. Praesent lacinia ex sit amet est pulvinar, id maximus orci dapibus. Etiam dictum gravida orci sed aliquam. Etiam massa lorem, auctor in mi eget, vehicula porta purus. Vestibulum varius tortor eget nunc dignissim dignissim. Donec suscipit pretium malesuada. Nullam sagittis libero posuere odio pretium, in rhoncus justo tempor. Donec convallis pulvinar ante, eu ornare urna.","Tools":"IUCWG outputs (GreenSCIES or LEO)?, Code of Practice, ARUP LAEP stakeholders and requirements, LAEP piece for Ofgem"}										
+														}
+								}
+							</code>
+						</div>
+					</div>
+			</td>
+		</tr>
+	</table>
+	
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+function hexmapfunctions(map){// set up all teh hexagons in each of the groups
+	map.setContent(function(id,hex){
+		str = '<div>'+ hex.short_desc+'</div>';
+		return str;
+	});
+
+	map.on('click',function(e){
+		if (e.hex.type==="Navigation"){
+			//strink this. and expand that
+			//get location of target div??
+
+		
+			
+		}  
+		else{
+			var str = "<strong>" + e.hex.short_desc + "</strong></br></br>" +e.hex.long_desc + "</br></br><hr/><strong>Tools Available</strong></br></br>" + e.hex.Tools;
+			S("#modal_text").html(str); //put text into model content
+            //show modal
+			modal.style.display = "block";
+			} 
+	});
+
+	map.setClass(function(id,hex){
+		  return hex.group.replace(/ /g,"").toLowerCase() + " " + hex.type.toLowerCase()
+	});
+
+	map.positionHexes().resize();
+	
+}
+
+S(document).ready(function(){
+// make the data hexagons
+	var SLESmap = S.hexmap('SLESmap');
+	var SLESmap2 = S.hexmap('SLESfundingandinvestment');
+	var SLESmap3 = S.hexmap('SLESroadmapandtimelines');
+	var SLESmap4 = S.hexmap('SLEShorizonscanning');
+	var SLESmap5 = S.hexmap('SLESdatarequirements');
+	var SLESmap6 = S.hexmap('SLESstakeholders');
+	var SLESmap7 = S.hexmap('SLESresources');
+
+//for each SLESmaps object do all of these things
+hexarray = [SLESmap,SLESmap2,SLESmap3,SLESmap4,SLESmap5,SLESmap6,SLESmap7]
+hexarray.forEach(element => hexmapfunctions(element));
+});
+ 
+ var element = document.querySelector('#nav_area')
+var instance = panzoom(element, {
+  maxZoom: 2,
+  minZoom: 0.5
+});
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+</script>
+
+</body>
+</html>
 	cursor: pointer;}
 
 .SLES1 .hex .hexInner {
