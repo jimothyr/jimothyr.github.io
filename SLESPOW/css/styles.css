@@ -1,0 +1,29 @@
+
+.pipelist li {
+    display: inline;
+    font-size: small;
+    font-weight: bold;
+  }
+
+.pipelist  li::after {
+    content: " | ";
+  }
+
+  .pipelist li:last-child::after {
+    content: "";
+}
+
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+/* bootstrap theme */
+.card {page-break-inside: avoid;}
+
+
+.red { border-bottom-color:  #e51f1f !important;}
