@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css.css">
+       <script type="text/javascript" src="js.js"></script>
+    </head>
+    <body>
+      <div class="box_container">
+        <div class="box_box">
+            <div class="box_icon"><image src="https://netzerogo.org.uk/wp-content/uploads/Behaviour-change_in-cirlce-1.png"/></image></div>
+            <div class="box_details">
+                <div class="box_details_header">Geographic Scale</div>
+                <div class="box_details_tag">Do area you want to cover:</div>
+            </div>
+            <div class="box_dynamic">
+                <div class="box_sliders">
+                    <div id="Scalebox" class="box box1"></div>
+                    <div class="box box2">
+                        <span></span>
+                    </div>
+                    <div class="box box3"></div>
+                </div>
+                <div id="box_scale" class="box_labels box_scales">
+                    <div class="box_label_item">Local Authority</div>
+                    <div class="box_label_item">Strategic Authority</div>
+                    <div class="box_label_item">Region / Country</div>
+                </div>
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="box_icon"><image src="https://netzerogo.org.uk/wp-content/uploads/Resource_in-cirlce-1.svg" /></div>
+            <div class="box_details">
+                <div class="box_details_header">Data Granularity</div>
+                <div class="box_details_tag">
+                    Do you want the data to be based on:
+                </div>
+            </div>
+            <div class="box_dynamic">
+                <div class="box_sliders">
+                    <div id="Databox" class="box box1"></div>
+                    <div class="box box2">
+                        <span></span>
+                    </div>
+                    <div class="box box3"></div>
+                </div>
+                <div id="box_data" class="box_labels">
+                    <div class="box_label_item">Building level</div>
+                    <div class="box_label_item">LSOA</div>
+                    <div class="box_label_item">Grid Supply Point</div>
+                </div>
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="box_icon"><img src="https://netzerogo.org.uk/wp-content/uploads/Strategic-Case_in-cirlce-1.png" /></div>
+            <div class="box_details">
+                <div class="box_details_header">Timescale</div>
+                <div class="box_details_tag">Do you want the plan to be based on:</div>
+            </div>
+            <div class="box_dynamic">
+                <div class="box_sliders">
+                    <div id="Timebox" class="box box1"></div>
+                    <div class="box box2">
+                        <span></span>
+                    </div>
+                    <div class="box box3"></div>
+                </div>
+                <div id="box_time" class="box_labels">
+                    <div class="box_label_item">Current energy system</div>
+                    <div class="box_label_item">Short term - 5 year forecast (2030)</div>
+                    <div class="box_label_item">Medium term - 10 year forecast (2035)</div>
+                    <div class="box_label_item">Long term (2050)</div>
+                </div>
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="box_icon"><img src="https://netzerogo.org.uk/wp-content/uploads/Decarbonisation-planning_in-cirlce-1.svg" /></div>
+            <div class="box_details">
+                <div class="box_details_header">Technical Scope</div>
+                <div class="box_details_tag">Are you interested in?</div>
+            </div>
+            <div class="box_dynamic">
+                <div class="box_sliders">
+                    <div id="Scopebox" class="box box1"></div>
+                    <div class="box box2">
+                        <span></span>
+                    </div>
+                    <div class="box box3"></div>
+                </div>
+                <div id="box_scope" class="box_labels">
+                    <div class="box_label_item">Single technology option</div>
+                    <div class="box_label_item">Small number of options</div>
+                    <div class="box_label_item">Whole system</div>
+                </div>
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="box_icon"><img src="https://netzerogo.org.uk/wp-content/uploads/Policy-and-strategy_in-cirlce.png" /></div>
+            <div class="box_details">
+                <div class="box_details_header">Approach</div>
+                <div class="box_details_tag">Are you interested in?</div>
+            </div>
+            <div class="box_dynamic">
+                <div class="box_sliders">
+                    <div id="Approachbox" class="box box1"></div>
+                    <div class="box box2">
+                        <span></span>
+                    </div>
+                    <div class="box box3"></div>
+                </div>
+                <div id="box_approach" class="box_labels">
+                    <div class="box_label_item">Datasets</div>
+                    <div class="box_label_item">Spatial mapping</div>
+                    <div class="box_label_item">Scenario modelling</div>
+                    <div class="box_label_item">Whole system modelling</div>
+                </div>
+            </div>
+        </div></div>
+        <select id="type" onchange="changeme(this)">
+            <option value="none"></option>
+            <option value="LAEP">LAEP</option>
+            <option value="LAEP+">LAEP+</option>
+            <option value="Option3">Option3</option>
+        </select>
+    </body>
+</html>
